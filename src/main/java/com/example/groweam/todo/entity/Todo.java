@@ -22,12 +22,12 @@ public class Todo {
     private Long todoId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project projectId", nullable = false)
-    private Project projectId;
+    @JoinColumn(name = "projectId", nullable = false)
+    private Project project;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user userId", nullable = false)
-    private User userId;
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
     @Column
     private String todoTitle;
@@ -45,9 +45,9 @@ public class Todo {
     private Boolean isComplete;
 
     @Builder
-    public Todo (Project projectId, User userId, String todoTitle, String manager, LocalDateTime todoDate, String todoContent, Boolean isComplete) {
-        this.projectId = projectId;
-        this.userId = userId;
+    public Todo (Project project, User user, String todoTitle, String manager, LocalDateTime todoDate, String todoContent, Boolean isComplete) {
+        this.project = project;
+        this.user = user;
         this.todoTitle = todoTitle;
         this.manager = manager;
         this.todoDate = todoDate;

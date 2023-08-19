@@ -1,5 +1,6 @@
 package com.example.groweam.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -28,9 +29,11 @@ public class Project {
     @Column
     private String teamName;
 
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     @Column
     private LocalDateTime projectStartDate;
 
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     @Column
     private LocalDateTime projectEndDate;
 

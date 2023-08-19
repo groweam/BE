@@ -16,8 +16,8 @@ public class User {
     private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project projectId", nullable = false)
-    private Project projectId;
+    @JoinColumn(name = "projectId", nullable = false)
+    private Project project;
 
     @Column
     private String userName;
@@ -25,10 +25,14 @@ public class User {
     @Column
     private String userPwd;
 
+    @Column
+    private String userInfo;
+
     @Builder
-    public User(Project projectId, String userName, String userPwd) {
-        this.projectId = projectId;
+    public User(Project project, String userName, String userPwd, String userInfo) {
+        this.project = project;
         this.userName = userName;
         this.userPwd = userPwd;
+        this.userInfo = userInfo;
     }
 }

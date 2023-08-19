@@ -18,24 +18,24 @@ public class Meeting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(nullable = false)
     private Long meetingId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project projectId", nullable = false)
-    private Project projectId;
+    @JoinColumn(name = "projectId", nullable = false)
+    private Project project;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user userId", nullable = false)
-    private User userId;
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
-    @Column
+    @Column(nullable = false)
     private String meetingTitle;
 
-    @Column
+    @Column(nullable = false)
     private LocalDateTime meetingStartDate;
 
-    @Column
+    @Column(nullable = false)
     private LocalDateTime meetingEndDate;
 
     @Column
@@ -48,11 +48,11 @@ public class Meeting {
     private LocalDateTime location;
 
     @Builder
-    public Meeting (Project projectId, User userId, String meetingTitle,
+    public Meeting (Project project, User user, String meetingTitle,
                     LocalDateTime meetingStartDate, LocalDateTime meetingEndDate,
                     LocalDateTime startTime, LocalDateTime endTime, LocalDateTime location) {
-        this.projectId = projectId;
-        this.userId = userId;
+        this.project = project;
+        this.user = user;
         this.meetingTitle = meetingTitle;
         this.meetingStartDate = meetingStartDate;
         this.meetingEndDate = meetingEndDate;
