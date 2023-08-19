@@ -1,7 +1,6 @@
 package com.example.groweam.todo.domain.dto;
 
 import com.example.groweam.todo.domain.entity.Todo;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

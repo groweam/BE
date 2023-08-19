@@ -1,6 +1,5 @@
 package com.example.groweam.todo.domain.dto;
 
-import com.example.groweam.project.domain.entity.Project;
 import com.example.groweam.todo.domain.entity.Todo;
 import com.example.groweam.user.domain.entity.User;
 import lombok.Builder;
@@ -25,4 +24,5 @@ public class TodoRequestDto {
         this.todoContent = todo.getTodoContent();
         this.isComplete = todo.getIsComplete();
     }
+
 }
