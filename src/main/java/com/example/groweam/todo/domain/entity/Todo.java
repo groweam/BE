@@ -1,7 +1,7 @@
-package com.example.groweam.todo.entity;
+package com.example.groweam.todo.domain.entity;
 
-import com.example.groweam.project.entity.Project;
-import com.example.groweam.user.entity.User;
+import com.example.groweam.project.domain.entity.Project;
+import com.example.groweam.user.domain.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

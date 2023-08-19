@@ -1,6 +1,6 @@
-package com.example.groweam.user.entity;
+package com.example.groweam.user.domain.entity;
 
-import com.example.groweam.project.entity.Project;
+import com.example.groweam.project.domain.entity.Project;
 import jakarta.persistence.*;
 import lombok.*;
 

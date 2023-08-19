@@ -1,4 +1,4 @@
-package com.example.groweam.project.entity;
+package com.example.groweam.project.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
