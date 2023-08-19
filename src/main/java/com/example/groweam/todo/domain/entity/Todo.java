@@ -29,27 +29,30 @@ public class Todo {
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @Column
+    @Column(nullable = false)
     private String todoTitle;
 
-    @Column
-    private String manager;
-
-    @Column
+    @Column(nullable = false)
     private LocalDateTime todoDate;
 
     @Column
     private String todoContent;
 
-    @Column
+    @Column(nullable = false)
     private Boolean isComplete;
 
     @Builder
-    public Todo (Project project, User user, String todoTitle, String manager, LocalDateTime todoDate, String todoContent, Boolean isComplete) {
+    public Todo (Project project, User user, String todoTitle, LocalDateTime todoDate, String todoContent, Boolean isComplete) {
         this.project = project;
         this.user = user;
         this.todoTitle = todoTitle;
-        this.manager = manager;
+        this.todoDate = todoDate;
+        this.todoContent = todoContent;
+        this.isComplete = isComplete;
+    }
+
+    public void update(String todoTitle, LocalDateTime todoDate, String todoContent, Boolean isComplete) {
+        this.todoTitle = todoTitle;
         this.todoDate = todoDate;
         this.todoContent = todoContent;
         this.isComplete = isComplete;
