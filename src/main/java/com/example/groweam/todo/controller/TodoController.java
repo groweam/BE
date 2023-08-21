@@ -32,14 +32,14 @@ public class TodoController {
     // 할일 등록
     @PostMapping("/create")
     public ResponseEntity<ApiResponse<Object>> createTodo(@RequestBody TodoRequestDto todoRequestDto) {
-        todoService.createTodo(todoRequestDto);
-        return ResponseEntity.ok().body(ApiResponse.response(HttpStatus.CREATED, "todo 생성 성공"));
-//        try {
-//            todoService.createTodo(todoRequestDto);
-//            return ResponseEntity.ok().body(ApiResponse.response(HttpStatus.CREATED, "todo 생성 성공"));
-//        } catch (Exception e) {
-//            return ResponseEntity.badRequest().body(ApiResponse.response(HttpStatus.BAD_REQUEST, e.getMessage()));
-//        }
+//        todoService.createTodo(todoRequestDto);
+//        return ResponseEntity.ok().body(ApiResponse.response(HttpStatus.CREATED, "todo 생성 성공"));
+        try {
+            todoService.createTodo(todoRequestDto);
+            return ResponseEntity.ok().body(ApiResponse.response(HttpStatus.CREATED, "todo 생성 성공"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ApiResponse.response(HttpStatus.BAD_REQUEST, e.getMessage()));
+        }
     }
 
     // 할일 수정

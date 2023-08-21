@@ -6,12 +6,11 @@ import com.example.groweam.todo.domain.dto.TodoResponseDto;
 import com.example.groweam.todo.domain.entity.Todo;
 import com.example.groweam.todo.repository.TodoRepository;
 import com.example.groweam.user.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,9 +33,13 @@ public class TodoService {
         }
     }
 
+
     @Transactional
     public void createTodo(TodoRequestDto todoRequestDto) {
         try {
+            if (todoRequestDto == null) {
+                throw new IllegalArgumentException("필수 데이터 누락");
+            } else {
                 Todo todo = Todo.builder()
                         .todoTitle(todoRequestDto.getTodoTitle())
                         .todoDate(todoRequestDto.getTodoDate())
@@ -45,7 +48,7 @@ public class TodoService {
                         .build();
 
                 todoRepository.save(todo);
-
+            }
         } catch (Exception e) {
             log.info(e.getMessage());
         }

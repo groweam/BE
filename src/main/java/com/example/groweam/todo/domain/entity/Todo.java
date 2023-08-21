@@ -22,11 +22,11 @@ public class Todo {
     private Long todoId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "projectId", nullable = false)
+    @JoinColumn(name = "projectId")
     private Project project;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "userId")
     private User user;
 
     @Column(nullable = false)
