@@ -8,7 +8,9 @@ import com.example.groweam.todo.repository.TodoRepository;
 import com.example.groweam.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TodoService {
 
     private final TodoRepository todoRepository;
@@ -32,8 +35,7 @@ public class TodoService {
     }
 
     @Transactional
-    public void createTodo(TodoRequestDto todoRequestDto) throws Exception {
-
+    public void createTodo(TodoRequestDto todoRequestDto) {
         try {
                 Todo todo = Todo.builder()
                         .todoTitle(todoRequestDto.getTodoTitle())
@@ -45,7 +47,7 @@ public class TodoService {
                 todoRepository.save(todo);
 
         } catch (Exception e) {
-            throw new Exception(e.getMessage());
+            log.info(e.getMessage());
         }
     }
 
